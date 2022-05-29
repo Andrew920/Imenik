@@ -32,6 +32,11 @@ class UserController {
             ViewHelper::render("view/login.php");
         }
     }
+    public static function LandingPage() {
+        session_start();
+        ViewHelper::render("view/home-user.php");
+    }
+
     public static function logout() {
         session_start();
         $_SESSION['user'] = "";

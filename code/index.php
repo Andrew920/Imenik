@@ -9,7 +9,7 @@ define("BASE_URL", $_SERVER["SCRIPT_NAME"] . "/");
 $path = isset($_SERVER["PATH_INFO"]) ? trim($_SERVER["PATH_INFO"], "/") : "";
 $urls = [
     "" => function () {
-        ViewHelper::render("view/home-user.php");
+        UserController::LandingPage();
     },
     "user/contact/add" => function () {
         ContactController::add();
