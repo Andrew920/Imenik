@@ -19,7 +19,7 @@ Na strani vidimo javno dostopne kontakte. Določene kontakte je mogoče spreminj
 ### Navigacija
 + Z gumbom *__registracija__* se postavimo na stran za registracijo
 + Z gumbom *__prijava__* se lahko prijavimo v aplikacijo
-+ Z iskalnim poljem in gumbom *__isci__* lahko iščemo med kontakti
++ Z iskalnim poljem in gumbom *__išči__* lahko iščemo med kontakti
 + z gumbom *__sortiraj__* lahko sortiramo kontakte po imenu, priimku ali starosti
 
 ### Uporabniška imena in gesla za testiranje:<br>
