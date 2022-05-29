@@ -1,0 +1,1 @@
+INSERT INTO `users` (`id`, `username`, `pass`, `images`, `lastMultiplier`, `created`) VALUES (NULL, 'user', 'pass', '0', '15', curdate());

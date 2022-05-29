@@ -1,0 +1,347 @@
+* {
+    box-sizing: border-box;
+    background-color: black;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    color: white;
+    margin: 0%;
+    padding: 0%;
+}
+header {
+    width: 100%;
+    display: inline-block;
+}
+
+header h1{
+    display: inline-block;
+    padding: 5px;
+    padding-left: 0;
+}
+
+.user {
+    padding: 5px;
+    margin-left: 10px;
+    float: right;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.left {
+    float: left;
+    margin-left: 0;
+}
+
+.user:hover {
+    background-color: white;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+button, input, .clickable {
+    cursor: pointer;
+}
+body {
+    margin: 2%;
+}
+h1 {
+    height: 10%;
+    align-items: center;
+    max-width: 100%;
+}
+h1 > button {
+    float: right;
+    display: block;
+    margin: auto 0 auto auto;
+    border: none;
+    font-size: 100%;
+    color: lightblue;
+}
+
+#poisci {
+    margin: 0%;
+    padding: 0;
+}
+input {
+    border: 3px solid grey;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 0 0 1% 0;
+    width: 100%;
+    max-height: 50%;
+}
+#razvrsti {
+    border: none;
+    border: 3px solid grey;
+    border-radius: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    overflow-y: auto;
+    max-height: 75vh;
+}
+li {
+    border-color: grey;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    margin: 1%;
+    padding: 1% 0;
+    width: 100;
+    font-size: large;
+}
+li > span {
+    width: 80%;
+    display: inline-block;
+}
+li > button {
+    margin: 0;
+    width: 20%;
+    border: none;
+    display: inline;
+    text-align: right;
+    color: lightblue;
+}
+
+/* Vnos in uredi */
+#vnos, #uredi {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #333;
+    position: absolute;
+    /* top: 5%; */
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.setting {
+    background-color: black;
+    display: inline-block;
+    width: 98%;
+    padding: 1%;
+    margin: 1%;
+    border: 3px solid white;
+    cursor: pointer;
+}
+
+.setting:hover {
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+}
+
+.selected-setting {
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+}
+
+.selected-setting:hover {
+    background-color: grey;
+    color: black;
+    border: 3px solid black;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.je-vnos {
+    animation-name: up;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    margin: 0%;
+    height: 100vh;
+}
+@keyframes up {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100vh;
+    }
+}
+.ni-vnosa {
+    animation-name: down;
+    animation-duration: 0.5s;
+    height: 0vh;
+}
+@keyframes down {
+    from {
+        height: 100vh;
+    }
+    to {
+        height: 0vh;
+    }
+}
+
+#vnos > input, #uredi > input {
+    padding: 3% 5%;
+    margin: 0;
+    border: 1px solid #AAA;
+    border-width: 1px 0 0 0;
+    border-radius: 0;
+    background-color: #333;
+}
+#vnos > input:last-child, #uredi > input:last-child {
+    border-width: 1px 0;
+}
+#vnos > div, #uredi > div {
+    width: 100%;
+    background-color: #333;
+    border-radius: 5px 5px 0 0;
+}
+.top {
+    display: inline-block;
+    border: none;
+    background-color: #333;
+    text-align: center;
+}
+button#potrdi-input, button#preklici-input, button#potrdi-uredi, button#preklici-uredi {
+    color: lightblue;
+    background-color: #222;
+    padding: 1% 2%;
+    margin: 1%;
+    border-radius: 5px;
+    width: 22%;
+}
+div#nov-kontakt, div#uredi-kontakt {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+button#potrdi-input, button#potrdi-uredi {
+    float: right;
+}
+#izbrisi {
+    background-color: red;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    border: 5px solid red;
+} 
+
+/* Izbira razvrstitve */
+#razvrsti-izbira {
+    width: 98%;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    left: 1%;
+}
+#razvrsti-izbira > button {
+    width: 100%;
+    padding: 3% 5%;
+    margin: 0;
+    border: 1px solid #AAA;
+    border-width: 0 0 1px 0;
+    border-radius: 0;
+    background-color: #333;
+}
+#razvrsti-izbira > button:last-child {
+    border-width: 0;
+    border-radius: 0 0 5px 5px;
+}
+#razvrsti-izbira > button:first-child {
+    border-radius: 5px 5px 0 0;
+}
+.je-razvrsti {
+    animation-name: up-razvrsti;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    bottom: 5px;
+    max-height: 50vh;
+}
+@keyframes up-razvrsti {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 50vh;
+    }
+}
+.ni-razvrsti {
+    animation-name: down-razvrsti;
+    animation-duration: 0.5s;
+    bottom: 5px;
+    max-height: 0;
+}
+@keyframes down-razvrsti {
+    from {
+        max-height: 50vh;
+    }
+    to {
+        max-height: 0;
+    }
+}
+
+/* Prikazi kontakt */
+#prikazi-kontakt {
+    left: 10%;
+    right: 10%;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 1%;
+    font-size: large;
+}
+#prikazi-kontakt > span, #pospravi {
+
+    padding: 1%;
+    display: block;
+    width: 100%;
+    border: 0 solid grey;
+    border-width: 1px 0 0;
+    border-radius: 5px;
+}
+#pospravi {
+    background-color: white;
+    color: black;
+    font-size: large;
+}
+
+/* footer */
+footer, footer > a {
+    background-color: #DDD;
+    color: #000;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+@media only screen and (min-width: 992px) {
+    h1 {
+        height: 20%;
+    }
+    body {
+        margin: 5%;
+    }
+    #vnos, #uredi {
+        font-size: xx-large;
+        width: 60%;
+        margin: auto 20%;
+    }
+    #vnos > input,  #uredi > input {
+        font-size: xx-large;
+    }
+    ul {
+        max-height: 50vh;
+    }
+    #plus {
+        width: 100%;
+        background-color: white;
+        color: #222;
+        border-radius: 5px;
+        margin: 1% 0;
+    }
+    #prikazi-kontakt {
+        left: 3%;
+        right: 3%;
+    }
+
+}
