@@ -50,7 +50,7 @@ INSERT INTO `contact` (`id`, `id_user`, `ime`, `priimek`, `telst`, `email`, `sta
 (5, 1, 'Javno', 'Odklenjeno', '', '', NULL, '2022-05-29', 1),
 (6, 1, 'Javno', 'Zaklenjen', '', '', NULL, '2022-05-29', 2),
 (7, 12, 'uporabnik', 'javen kontakt', '041222333', 'uporabnik@gmail.com', 25, '2022-05-29', 2),
-(9, 12, 'Javno zaklenjen', 'Odklenjen pri uporabniku', '', '', NULL, '2022-05-29', 3),
+(9, 12, 'Javno zaklenjen', 'Odklenjen pri uporabniku', '', '', NULL, '2022-05-29', 2),
 (10, 12, 'Zaseben', 'Kontakt', '', '', NULL, '2022-05-29', 3),
 (11, 12, 'Zaseben in', 'Popolnoma Zaklenjen kontakt', '', '', NULL, '2022-05-29', 4);
 
