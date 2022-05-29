@@ -1,32 +1,34 @@
--- MySQL dump 10.13  Distrib 8.0.29, for macos12.2 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1    Database: contacts
--- ------------------------------------------------------
--- Server version	5.5.5-10.4.21-MariaDB
+-- Host: 127.0.0.1
+-- Generation Time: May 29, 2022 at 01:16 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
-CREATE DATABASE IF NOT EXISTS contacts;
-USE contacts;
+--
+-- Database: `contacts`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `contact`
 --
 
-DROP TABLE IF EXISTS `contact`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `contact` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `id_user` int(11) DEFAULT NULL,
   `ime` varchar(100) DEFAULT NULL,
   `priimek` varchar(100) DEFAULT NULL,
@@ -34,79 +36,120 @@ CREATE TABLE `contact` (
   `email` varchar(100) DEFAULT NULL,
   `starost` int(11) DEFAULT NULL,
   `modified` date DEFAULT NULL,
-  `setting` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_user` (`id_user`),
-  CONSTRAINT `contact_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `setting` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `contact`
 --
 
-LOCK TABLES `contact` WRITE;
-/*!40000 ALTER TABLE `contact` DISABLE KEYS */;
-INSERT INTO `contact` VALUES (1,1,'andra','Marinsek','070471624','andraz.marinsek@gmail.com',20,'2022-05-22',2),(2,1,'test','a','','',NULL,'2022-05-22',1),(3,6,'ime uporabnika','priimek uporabnika','','',NULL,'2022-05-22',3),(4,9,'test','pass','','',NULL,'2022-05-28',1);
-/*!40000 ALTER TABLE `contact` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `contact` (`id`, `id_user`, `ime`, `priimek`, `telst`, `email`, `starost`, `modified`, `setting`) VALUES
+(5, 1, 'Javno', 'Odklenjeno', '', '', NULL, '2022-05-29', 1),
+(6, 1, 'Javno', 'Zaklenjen', '', '', NULL, '2022-05-29', 2),
+(7, 12, 'uporabnik', 'javen kontakt', '041222333', 'uporabnik@gmail.com', 25, '2022-05-29', 2),
+(9, 12, 'Javno zaklenjen', 'Odklenjen pri uporabniku', '', '', NULL, '2022-05-29', 3),
+(10, 12, 'Zaseben', 'Kontakt', '', '', NULL, '2022-05-29', 3),
+(11, 12, 'Zaseben in', 'Popolnoma Zaklenjen kontakt', '', '', NULL, '2022-05-29', 4);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `settings`
 --
 
-DROP TABLE IF EXISTS `settings`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `settings` (
-  `setting_id` int(11) NOT NULL AUTO_INCREMENT,
-  `setting_string` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`setting_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `setting_id` int(11) NOT NULL,
+  `setting_string` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `settings`
 --
 
-LOCK TABLES `settings` WRITE;
-/*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (1,'Javno in Urejanje je Mogoce'),(2,'Javno in Zaklenjeno (Urejanje ni mogoce)'),(3,'Zasebno in Urejanje je Mogoce'),(4,'Zasebno in Zaklenjeno (Urejanje ni mogoce)');
-/*!40000 ALTER TABLE `settings` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `settings` (`setting_id`, `setting_string`) VALUES
+(1, 'Javno in Urejanje je Mogoce'),
+(2, 'Javno in Zaklenjeno (Urejanje ni mogoce)'),
+(3, 'Zasebno in Urejanje je Mogoce'),
+(4, 'Zasebno in Zaklenjeno (Urejanje ni mogoce)');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `username` varchar(100) DEFAULT NULL,
-  `pass` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `pass` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'user','pass'),(6,'user1','pass1'),(9,'test','pass');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `users` (`id`, `username`, `pass`) VALUES
+(1, 'user', 'pass'),
+(12, 'uporabnik', 'geslo');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `setting` (`setting`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`setting_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `setting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `contact`
+--
+ALTER TABLE `contact`
+  ADD CONSTRAINT `contact_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `contact_ibfk_2` FOREIGN KEY (`setting`) REFERENCES `settings` (`setting_id`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2022-05-28 19:51:11

@@ -138,13 +138,13 @@ function prikazi(event) {
     document.getElementById("prikazi-starost").innerHTML = "Starost: " + t.childNodes[2].childNodes[2].innerHTML;
 }
 
-function dodaj_v_tabelo(nova_oseba) {
+function dodaj_v_tabelo(nova_oseba, edit = false) {
 
     // Dodamo ime in priimek
     const list = document.getElementById("list");
     const vrsta = document.createElement("li");
     const button = document.createElement("button");
-    if (nova_oseba["setting"] == 1 || nova_oseba["setting"] == 3) {
+    if (nova_oseba["setting"] == 1 || nova_oseba["setting"] == 3 || edit) {
         button.onclick = uredi;
         button.innerHTML = "Uredi"
     }
@@ -259,7 +259,7 @@ function dodaj(event) {
                 setting: setting,
                 id_num: id_num
             };
-            dodaj_v_tabelo(nova_oseba);
+            dodaj_v_tabelo(nova_oseba, setting != 4);
         });
         odpri_vnos();
     }
