@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2022 at 01:16 PM
+-- Generation Time: May 29, 2022 at 02:21 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `contacts`
 --
+CREATE DATABASE IF NOT EXISTS `contacts` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `contacts`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `contact`
 --
 
+DROP TABLE IF EXISTS `contact`;
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
   `id_user` int(11) DEFAULT NULL,
@@ -57,6 +60,7 @@ INSERT INTO `contact` (`id`, `id_user`, `ime`, `priimek`, `telst`, `email`, `sta
 -- Table structure for table `settings`
 --
 
+DROP TABLE IF EXISTS `settings`;
 CREATE TABLE `settings` (
   `setting_id` int(11) NOT NULL,
   `setting_string` varchar(200) DEFAULT NULL
@@ -78,6 +82,7 @@ INSERT INTO `settings` (`setting_id`, `setting_string`) VALUES
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(100) DEFAULT NULL,
