@@ -46,7 +46,7 @@ class UserDB {
         $stmt->execute();
     }
     public static function getUserId() {
-        session_start();
+        // session_start();
         if (isset($_SESSION['user'])) {
             $instance = DBinit::getInstance();
             $query = "SELECT id FROM users WHERE username = :user";

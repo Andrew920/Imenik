@@ -5,8 +5,7 @@ export function dodaj_v_bazo (ime='', priimek='', telst='', email='', starost=''
                 "email="    + email     + "&" +
                 "setting="  + setting   + "&" +
                 "starost="  + starost;
-
-    return ajax('http://localhost/velika-naloga3/index.php/user/contact/add', body.length, body);
+    return ajax(window.location.href.split("index.php")[0] + 'index.php/user/contact/add', body.length, body);
 }
 export function posodobi_bazo (id, ime='', priimek='', telst='', email='', starost='') {
     let body =  "ime="      + ime       + "&" +
@@ -16,11 +15,11 @@ export function posodobi_bazo (id, ime='', priimek='', telst='', email='', staro
                 "starost="  + starost   + "&" +
                 "id="       + id;
 
-    ajax('http://localhost/velika-naloga3/index.php/user/contact/update', body.length, body)
+    ajax(window.location.href.split("index.php")[0] + 'index.php/user/contact/update', body.length, body)
 }
 export function izbrisi_iz_baze(id) {
     let body = "id="+id;
-    ajax('http://localhost/velika-naloga3/index.php/user/contact/remove', body.length, body)
+    ajax(window.location.href.split("index.php")[0] + 'index.php/user/contact/remove', body.length, body)
 
 }
 
@@ -45,7 +44,7 @@ function ajax(url, l, body) {
 }
 
 export async function getContacts() {
-    return fetch('http://localhost/velika-naloga3/index.php/user/contact/list').then(res => res.json());
+    return fetch(window.location.href.split("index.php")[0] + 'index.php/user/contact/list').then(res => res.json());
 }
    
   

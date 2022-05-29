@@ -1,4 +1,4 @@
-import { dodaj_v_bazo, posodobi_bazo, izbrisi_iz_baze, getContacts } from "http://localhost/velika-naloga3/static/baza.js";
+import { dodaj_v_bazo, posodobi_bazo, izbrisi_iz_baze, getContacts } from "./baza.js";
 
 function poisci (event) {
     const vnos = document.getElementById("poisci-input").value;
